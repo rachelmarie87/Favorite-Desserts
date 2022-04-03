@@ -1,0 +1,18 @@
+---
+title: "Favorite Dessert"
+author: "Rachel Rineman"
+date: "4/2/2022"
+output: html_document
+---
+```{r}
+summary(FavDessert)
+colnames(FavDessert)[2]<- "Rating"
+```
+
+```{r}
+library(ggplot2)
+library(viridis)
+
+ggplot(FavDessert, aes(Dessert, Rating, fill = Quantity_oz )) + geom_bar(stat = "identity") + theme_classic()+ xlab("Rachel's Favorite Desserts") + ylab("Dessert Rating") + scale_fill_viridis(discrete=FALSE, option = "D", name = "Quantity") + theme(axis.text.x = element_text(angle = 45, vjust = 1.0, hjust=1))
+```
+
